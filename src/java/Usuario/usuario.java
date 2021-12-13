@@ -14,14 +14,14 @@ public class usuario {
     private String apellido;
     private String email;
     private String user;
-    private String contraseña;
+    private String password;
 
-    public usuario(String nombre, String apellido, String email, String user, String contraseña) {
+    public usuario(String nombre, String apellido, String email, String user, String contra) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.user = user;
-        this.contraseña = contraseña;
+        this.password = contra;
     }
 
     public usuario() {
@@ -60,12 +60,12 @@ public class usuario {
         this.user = user;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPassword(String password) {
+        this.password = password;
     }
     
 }

@@ -5,6 +5,7 @@
  */
 package metodos;
 
+
 import Usuario.usuario;
 import Usuario.usuarios;
 import java.sql.Connection;
@@ -39,7 +40,7 @@ public class validaciones {
                   u.setApellido(rs.getString("apellido"));
                   u.setEmail(rs.getString("email"));
                   u.setUser(rs.getString("usuario"));
-                  u.setContraseña(rs.getString("contra"));
+                  u.setPassword(rs.getString("contra"));
                   usuarios.usuario.add(u);
                   }  
                 
@@ -78,8 +79,9 @@ public class validaciones {
     public static String validarLoginUsuario(String user, String pass) {
         String estado = null;
         for (int i = 0; i < usuarios.usuario.size(); i++) {
-            if (String.valueOf(usuarios.usuario.get(i).getUser()).equals(user) && String.valueOf(usuarios.usuario.get(i).getContraseña()).equals(pass)) {
+            if (String.valueOf(usuarios.usuario.get(i).getUser()).equals(user) && String.valueOf(usuarios.usuario.get(i).getPassword()).equals(pass)) {
                 estado = "correcto";
+                break;
             } else {
                 estado = "incorrecto";
             }
@@ -87,4 +89,8 @@ public class validaciones {
         }
         return estado;
     }
+    
+    
+    
+    
 }

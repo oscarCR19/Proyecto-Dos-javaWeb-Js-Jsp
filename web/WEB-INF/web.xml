@@ -8,10 +8,13 @@
         <servlet-name>regServlet</servlet-name>
         <servlet-class>servlets.regServlet</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>cargaVehiculosServlet</servlet-name>
         <servlet-class>servlets.cargaVehiculosServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logServlet</servlet-name>
+        <servlet-class>servlets.logServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>loginServlet</servlet-name>
@@ -21,10 +24,13 @@
         <servlet-name>regServlet</servlet-name>
         <url-pattern>/regServlet</url-pattern>
     </servlet-mapping>
-    
     <servlet-mapping>
         <servlet-name>cargaVehiculosServlet</servlet-name>
         <url-pattern>/vehiculos.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logServlet</servlet-name>
+        <url-pattern>/logServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

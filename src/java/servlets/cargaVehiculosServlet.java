@@ -82,28 +82,9 @@ public class cargaVehiculosServlet extends HttpServlet {
             
             
             out.println("<div>");
-            for(int i=0;i<20;i++){
-                out.println("<div style=\"display: inline-block; background-color: yellow; text-align: center; border: 2px solid; margin-left: 20px; margin-top: 20px;\">\n" +
-"            <h2 id=\"marca\">Honda</h2>\n" +
-"            <img src=\"vehiculos/hondacivic.jpg \" width=\"250 \" height=\"250 \">\n" +
-"            <br>\n" +
-"            <label for=\"modelo\" style=\"font-weight: bolder;\">Modelo:</label>\n" +
-"            <p id=\"modelo\">\n" +
-"                Civic\n" +
-"            </p>\n" +
-"            <label for=\"precio\" style=\"font-weight: bolder;\">Precio:</label>\n" +
-"            <p id=\"precio\">\n" +
-"                13000\n" +
-"            </p>\n" +
-"            <label for=\"transmision\" style=\"font-weight: bolder;\">Transmision:</label>\n" +
-"            <p id=\"transmision\">\n" +
-"                automatico\n" +
-"            </p>\n" +
-"            <form action=\"\">\n" +
-"                <input type=\"submit\" value=\"Ver vehiculo\" style=\"font-weight: bolder;\">\n" +
-"            </form>\n" +
-"            <br>\n" +
-"        </div>");
+            
+            for(int i=0;i<100;i++){
+                out.println("");
             }
             
             

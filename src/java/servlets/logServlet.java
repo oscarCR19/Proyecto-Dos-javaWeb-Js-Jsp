@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +24,7 @@ import metodos.validaciones;
  *
  * @author oscar
  */
-public class regServlet extends HttpServlet {
+public class logServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,37 +39,31 @@ public class regServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            validaciones.usuarioArrayList();
+             validaciones.usuarioArrayList();
             
             try {
-                //objeto de tipo hash para la contraseña y validacion de user por medio de un ciclo for y arraylist
                 hash h = new hash();
-                //abro conexion
-                Connection c = null;
-                Statement stmt = null;
-                ResultSet rs;
-                Class.forName("org.postgresql.Driver");
-                c = DriverManager
-                        .getConnection("jdbc:postgresql://localhost:5432/ProyectoWeb",//5432
-                                "postgres", "root1234");
-                stmt = c.createStatement();
                 
              
                 
-                if (validaciones.validarUsuario(request.getParameter("inputUsuario"), request.getParameter("inputEmail")) == "registrado") {
-                    out.println("<body style=\"background-color: #444444;\">\n" +
+                if (validaciones.validarLoginUsuario(request.getParameter("inputUser"),h.getSHA256(request.getParameter("inputPass")))  == "correcto") {
+                    RequestDispatcher rd= request.getRequestDispatcher("index.html");
+                rd.forward(request, response);
+                    return;
+                } else{
+                   out.println("<body style=\"background-color: #444444;\">\n" +
                     "    <div style=\"text-align: center; color: white;\">\n" +
                     "        <h2>\n" +
                     "            Error en ingreso datos\n" +
                     "        </h2>\n" +
                     "        <P>\n" +
-                    "            Ha ocurrido un error en el ingreso los datos, posiblemente el correo o usuario ya estan en uso.\n" +
+                    "            " +
                     "        </P>\n" +
                     "         <div>\n" +
-                    "            <form action=\"registroPage.html\">\n" +
-                    "                <label for=\"login\">Ir a registro</label>\n" +
+                    "            <form action=\"loginPage.html\">\n" +
+                    "                <label for=\"login\">Ir a login</label>\n" +
                     "                <div>\n" +
-                    "                    <input type=\"submit\" value=\"Ir a registro\">\n" +
+                    "                    <input type=\"submit\" value=\"Ir a login\">\n" +
                     "                </div>\n" +
                     "\n" +
                     "            </form>\n" +
@@ -78,38 +73,6 @@ public class regServlet extends HttpServlet {
                     "\n" +
                     "\n" +
                     "</body>");
-                    return;
-                } else if (validaciones.validarUsuario(request.getParameter("inputUsuario"), request.getParameter("inputEmail")) == "noregistrado") {
-                    String sql = "INSERT INTO \"SitioWeb\".usuarios (\n"
-                            + "\"nombre\", \"apellido\", email, \"usuario\", contra) VALUES (\n"
-                            + "'" + request.getParameter("inputNombre") + "', '" + request.getParameter("inputApellido") + "', "
-                            + "'" + request.getParameter("inputEmail") + "', '" + request.getParameter("inputUsuario") + "', "
-                            + "'" + h.getSHA256(request.getParameter("inputPass")) + "');";
-                    out.println("<body style=\"background-color: #444444;\">\n" +
-"    <div style=\"text-align: center; color: white;\">\n" +
-"        <h2>\n" +
-"            Registro éxitoso\n" +
-"        </h2>\n" +
-"        <P>\n" +
-"            Es un placer darle la bienvenida a la plataforma de ventas de vehiculos más grandes de Costa Rica.\n" +
-"        </P>\n" +
-"        <div>\n" +
-"            <form action=\"loginPage.html\">\n" +
-"                <label for=\"login\">Listo para loguearse</label>\n" +
-"                <div>\n" +
-"                    <input type=\"submit\" value=\"Ir a login\">\n" +
-"                </div>\n" +
-"\n" +
-"            </form>\n" +
-"        </div>\n" +
-"    </div>\n" +
-"\n" +
-"\n" +
-"\n" +
-"</body>");
-                    stmt.executeUpdate(sql);
-                    stmt.close();
-                    c.close();
               }  
                   
             } catch (Exception e) {
@@ -124,6 +87,13 @@ public class regServlet extends HttpServlet {
         usuarios.usuario.clear();
         
     }
+            
+            
+            
+            
+            
+
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
