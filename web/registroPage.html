@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 
 <html>
     <head>
@@ -6,75 +8,79 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <LINK REL="StyleSheet" HREF="style.css" TYPE="text/css">
-        <script src="script.js"></script>
-        
+        <script src="script.js" type="text/javascript"></script>
     </head>
     <body>
         <div style="text-align: right">
-               <input type="button" value="Página anterior" onClick="history.go(-1)" />
+            <input type="button" value="Página anterior" onClick="history.go(-1)" />
         </div><!-- Boton de atras -->
-        
+
         <!-- Entrada de registro -->
         <div id="registroBlock" class="">
-        <div class="d-flex justify-content-center h-100">
-            <div class="card registro">
-                <div class="card-header registro">
-                    <br>
-                    <br>
-                    <h3>Registro</h3>
+            <div class="d-flex justify-content-center h-100">
+                <div class="card registro">
+                    <div class="card-header registro">
+                        <br>
+
+                        <h3>Registro</h3>
+
+                    </div>
+                    <div class="card-body">
+                        <form action="servletRegistro" method="post">
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre" name="nombre" required>
+                            </div>
+                            <br>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="apellido"  placeholder="Apellido" name="apellido" required>
+                            </div>
+                            <br>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
+                            </div>
+                            <br>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="text" class="form-control" id="usuario" placeholder="Usuario" name="usuario" required>
+                            </div>
+                            <br>
+                            <div class="input-group form-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                </div>
+                                <input type="password" class="form-control" id="pass" placeholder="Contrasena" name="pass" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="submit" value="Registrarse" class="btn float-right login_btn">
+                                <p style="color: white">¿Ya tienes cuenta?<a class="link" href="loginPage.html">Iniciar sesion</a></p>
+
+                            </div>
+
+                        </form>
+
+                    </div>
 
                 </div>
-                <div class="card-body">
-                    <form>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-user"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="inputNombre" placeholder="Nombre">
-                        </div>
-                        <br>
-
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="inputApellido" placeholder="Apellido">
-                        </div>
-                        <br>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-                        </div>
-                        <br>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="text" class="form-control" id="inputUsuairo" placeholder="Usuario">
-                        </div>
-                        <br>
-                        <div class="input-group form-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text"><i class="fas fa-key"></i></span>
-                            </div>
-                            <input type="password" class="form-control" id="inputPass" placeholder="Contraseña">
-                        </div>
-
-
-                        <div class="form-group">
-                            <input type="submit" value="Registrarse" class="btn float-right login_btn">
-                        </div>
-                    </form>
-                </div>
-                
             </div>
         </div>
-    </div>
-        
-       
-        
+
+
+
+
+
     </body>
 </html>
-    
+
